@@ -1,0 +1,142 @@
+/* App.css */
+
+.game-container {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+.game-canvas {
+  display: block;
+}
+
+.game-info {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #e0deb6;
+  font-size: 18px;
+  display: flex;
+  gap: 20px;
+}
+
+.controls {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.controls button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(107, 42, 42, 0.8);
+  color: #7a6868;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+.flipper-btn {
+  background: linear-gradient(145deg, #929dc5, #142263);
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+
+/* App.css */
+
+
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow:
+      0 4px 8px rgba(0,0,0,0.2),
+      0 0 12px rgba(255,101,163,0.6),
+      inset 0 -2px 4px rgba(0,0,0,0.2);
+  }
+  50% {
+    box-shadow:
+      0 6px 12px rgba(0,0,0,0.3),
+      0 0 20px rgba(255,101,163,0.9),
+      inset 0 -4px 6px rgba(0,0,0,0.2);
+  }
+}
+
+.flipper-btn {
+  position: absolute;
+  bottom: 10px;
+  padding: 12px 28px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #212025; /* very pale pink */
+  background: linear-gradient(145deg, #ff9a9e, #fecfef);
+  border: 2px solid #ff6f91; /* pink border */
+  border-radius: 50px;
+  box-shadow:
+    inset 0 0 8px rgba(85, 22, 36, 0.6),
+    0 4px 12px rgba(255,111,145,0.4);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.2s ease;
+}
+
+.flipper-btn:hover {
+  transform: scale(1.1);
+  box-shadow:
+    inset 0 0 12px rgba(255,111,145,0.8),
+    0 6px 16px rgba(255,111,145,0.6);
+  border-color: #ff4c73; /* deepen on hover */
+}
+
+.flipper-btn:active {
+  transform: scale(0.80);
+  box-shadow:
+    inset 0 0 6px rgba(238, 34, 85, 0.8),
+    0 2px 6px rgba(255,75,120,0.4);
+  border-color: #ff2a5b; /* even deeper on press */
+}
+
+
+/* expanding colored ripple on click */
+.flipper-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 101, 163, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease, opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.flipper-btn:active::after {
+  width: 200%;
+  height: 200%;
+  opacity: 0;
+}
+
+/* colored glow on focus */
+.flipper-btn:focus {
+  outline: 6;
+  border-color: #ff4c73;
+  box-shadow:
+    inset 0 0 8px rgba(255, 75, 120, 0.6),
+    0 0 0 6px rgba(255, 75, 120, 0.4);
+}
